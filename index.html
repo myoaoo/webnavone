@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网址导航</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="parent-navbar">
+            <div class="navbar-left">
+                <a href="" onclick="returnToInitialPath()"><img src="https://myimg.oaoo.top/oaoo.svg" style="height: 25px;"></a>
+                <button id="toggleSidebarButton" onclick="toggleSidebar()">☰</button>
+            </div>
+            <div class="navbar-right">
+                <div class="dropdown">
+                    <span>分类</span>
+                    <div class="dropdown-content" id="navbar-links"></div>
+                </div>
+                <input type="text" placeholder="过滤筛选" id="filterInput">
+                <button onclick="resetFilter()">重置</button>
+            </div>
+        </div>
+    </div>
+    <form action="https://www.baidu.com/s" method="get">
+        <input type="text" id="searchInput" name="wd" placeholder="百度一下">
+        <button type="submit">搜索</button>
+    </form>
+    <div id="app"></div>
+    <div id="sidebar">
+        <div id="sidebar-links"></div>
+    </div>
+    <div id="overlay" onclick="closeSidebar()"></div>
+	<script src="data.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

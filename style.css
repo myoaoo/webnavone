@@ -1,0 +1,275 @@
+	body {
+		margin: 0;
+		font-family: 'Arial', sans-serif;
+		overflow-x: hidden;
+		background: #f9f9f9;
+	}
+	.category-container {padding: 10px 0;scroll-margin-top: 50px; /* 锚点距离顶部的距离，根据需要调整 */}
+    p {margin: 0px auto;color: #6c757d;}
+	a { text-decoration: none; } 
+.sidebar-div {margin: 10px;}
+/*菜单栏*/		
+	.parent-navbar {
+		display: flex;
+		justify-content: space-between;
+		width: 70%;
+		height: 50px;
+		margin: 0 auto;
+	}
+	@media (max-width: 767px) {
+		.parent-navbar {
+			width: calc(100% - 20px);
+		}
+	}
+	.navbar {
+		background-color: #f8f8f8;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		width: 100%;
+		position: fixed;
+		top: 0;
+		z-index: 3; /* 使导航栏位于其他元素之上 */
+	}
+	.navbar-left,
+	.navbar-right {
+		display: flex;
+		align-items: center;
+	}
+	.navbar input[type="text"] {
+		padding: 8px;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		width: 100px;
+	}
+	.navbar button {
+		margin-left: 10px;
+		padding: 8px;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+	#navbar-links a {
+		padding: 8px 16px;
+		text-decoration: none;
+		font-size: 1.2rem;
+		color: #818181;
+		display: inline-block;
+		transition: 0.3s;
+	}
+	#navbar-links a:hover {
+		color: #f1f1f1;
+        background-color: #f1f1f1;
+	}
+	
+/*侧边栏*/		
+#sidebar {
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -300px; /* 将初始位置设置为左侧隐藏 */
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 2;
+}
+
+#sidebar.overlay-open {
+    left: 0; /* 通过 left 属性控制侧边栏的显示和隐藏 */
+}
+
+	#sidebar a {
+		padding: 10px 10px 10px 20px;
+		text-decoration: none;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+	}
+	#sidebar a:hover {
+		color: red;
+	}
+	#sidebar .close-btn {
+		position: absolute;
+		top: 0;
+		right: 25px;
+		font-size: 2rem;
+		margin-left: 50px;
+		cursor: pointer;
+	}																			
+	#sidebar.overlay-open {
+		z-index: 2;
+		width: 150px;
+	}
+		
+/*内容*/		
+	#app {
+		max-width: 1440px;
+		margin: 20px auto 20px;
+		}
+	@media (min-width: 1024px) {
+		#app {
+			max-width: 70%;
+		}
+	}
+
+	@media (max-width: 1024px) {
+		#app {
+			max-width: 90%;
+		}
+	}
+
+	@media (max-width: 767px) {
+		#app {
+			width: 100%;
+		}
+	}
+	
+/*百度搜索*/		
+	form {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		margin-top: 90px;
+	}
+	form input {
+		padding: 10px;
+		border: 1px solid #ddd;
+		border-radius: 4px 0 0 4px;
+		outline: none;
+		width: calc(100% - 100px);
+		max-width:1024px;
+	}
+
+	form button {
+		padding: 10px;
+		border: none;
+		border-radius: 0 4px 4px 0;
+		cursor: pointer;
+		background-color: #4CAF50;
+		color: white;
+		width: 50px
+	}
+	
+/*分类*/
+    .dropdown {
+        position: relative;
+        display: inline-block;
+		padding-right: 10px;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        max-height: 200px; 
+        overflow: auto; 
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    .dropdown-content a:hover {
+		color: red!important;
+        background-color: #f1f1f1;
+    }
+/*导航栏*/    	
+	
+	.grid-container {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		gap: 20px;
+	}
+
+	/* 增加媒体查询，适应手机端屏幕 */
+	@media (max-width: 767px) {
+		.grid-container {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	.grid-item {
+		padding: 10px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		text-align: center;
+		align-items: center; /* 新增的行，使子元素在纵轴上居中 */
+		height: 40px;
+		background-color: #fff;
+		border-radius: 0.3rem;
+		transition: all 0.3s ease;
+		box-shadow: 0 0 8px #adadad50;
+	}
+	.grid-item:hover {
+	  transform: translateY(-2px) scale(1.08); /* 向上移动2px并放大1.03倍（即3%） */
+	  box-shadow: 0 0 8px #42b983;
+	}
+	.image-container {
+		width: 40px;
+		height: 40px;
+		overflow: hidden;
+		flex: 0 0 auto;
+	}
+	.image-container img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover; /* 保持图片比例并填充容器 */
+	}
+	.padding {
+		padding: 0 0 0 10px;
+		flex: 1;
+		box-sizing: border-box;
+		text-align: left;
+		color: #282a2d;
+	}
+	.padding strong {		
+		font-size: 0.9rem;
+	}
+
+	.description {
+		display: -webkit-box;
+		-webkit-line-clamp: 1; /* 显示的行数 */
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		font-size: 0.8rem;
+	}
+	.url,
+	.original-url {
+		font-size: 12px;
+		color: #555;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2; /* 显示的行数 */
+		-webkit-box-orient: vertical;
+	}
+
+	#toggleSidebarButton {
+		border: none;
+		cursor: pointer;
+	}
+ 	#overlay {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 1;
+	}
+    ::-webkit-scrollbar {width: 8px;}
+    ::-webkit-scrollbar-thumb {background-color: #adadad;border-radius: 4px;}
+    ::-webkit-scrollbar-track {background-color: #adadad32;}
+    scrollbar-width: thin;
+    scrollbar-color: #ffcccc transparent; 
+    scrollbar-face-color: #ffcccc;
+    scrollbar-shadow-color: transparent; 
